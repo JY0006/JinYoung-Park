@@ -1,6 +1,6 @@
 ---
 title: "JinYoung_Park"
-image: "C:/Users/pc/Desktop/HayesCourse2025/GitHub/JinYoung-Park/JinYoung-Park"
+image: C:/Users/pc/Desktop/HayesCourse2025/GitHub/JinYoung-Park/JinYoung-Park/headshot.png
 toc: true
 about:
   template: trestles

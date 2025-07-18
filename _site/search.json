@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "projects/project_title.html",
+    "href": "projects/project_title.html",
+    "title": "Project Title",
+    "section": "",
+    "text": "About this site"
   }
 ]
