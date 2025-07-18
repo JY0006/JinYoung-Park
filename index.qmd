@@ -1,7 +1,22 @@
 ---
 title: "JinYoung_Park"
+image: "C:/Users/pc/Desktop/HayesCourse2025/GitHub/JinYoung-Park/JinYoung-Park"
+toc: true
+about:
+  template: trestles
+  links:
+    - text: GitHub
+      href: link
+    - text: Email
+      href: link
 ---
 
-This is a Quarto website.
+::: {.column-page}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Bio
+
+## Research Goals
+
+## Experience
+
+:::
