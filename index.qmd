@@ -1,5 +1,5 @@
 ---
-title: "JinYoung_Park"
+title: "JinYoung Park"
 image: "headshot.png"
 toc: true
 about:
@@ -22,7 +22,7 @@ about:
 ::: {.column-page}
 
 ## Bio
-
+# Hello
 ## Research Goals
 
 ## Experience
