@@ -5,11 +5,17 @@ toc: true
 about:
   template: trestles
   links:
-    - text: GitHub
+    - icon: github
+      text: GitHub
       href: https://github.com/JY0006
-    - text: Email
+    - icon: linkedin
+      text: Linkedin
+      href: www.linkedin.com/in/jinyoung-park-bio
+    - icon: envelope
+      text: Email
       href: jinyoung-park@ouhsc.edu
-    - text: GoogleScholar
+    - icon: google
+      text: GoogleScholar
       href: https://scholar.google.com/citations?user=p8Qd4zwAAAAJ&hl=en
 ---
 
