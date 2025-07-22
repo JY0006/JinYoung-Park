@@ -6,9 +6,11 @@ about:
   template: trestles
   links:
     - text: GitHub
-      href: link
+      href: https://github.com/JY0006
     - text: Email
-      href: link
+      href: jinyoung-park@ouhsc.edu
+    - text: GoogleScholar
+      href: https://scholar.google.com/citations?user=p8Qd4zwAAAAJ&hl=en
 ---
 
 ::: {.column-page}
