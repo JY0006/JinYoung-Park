@@ -12,10 +12,7 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.scss
+    theme: styles.scss
     toc: true
 
 
