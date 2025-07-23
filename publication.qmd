@@ -1,0 +1,17 @@
+---
+title: "Publication"
+listing:
+  id: publication-listings
+  contents: publication
+  sort: "date asc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+date-format: "MM-DD-YYYY"
+---
+
+::: {#Projects-listings}
+:::
