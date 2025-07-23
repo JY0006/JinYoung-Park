@@ -1,6 +1,6 @@
 ---
 title: "JinYoung Park"
-image: "headshot.png"
+image: "selfie.png"
 toc: true
 about:
   template: trestles
