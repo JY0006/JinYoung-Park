@@ -7,22 +7,22 @@ about:
   links:
     - icon: github
       text: GitHub
-      href: https://github.com/JY0006
+      url: https://github.com/JY0006
     - icon: linkedin
       text: Linkedin
-      href: www.linkedin.com/in/jinyoung-park-bio
+      url: www.linkedin.com/in/jinyoung-park-bio
     - icon: envelope
       text: Email
-      href: jinyoung-park@ouhsc.edu
+      url: jinyoung-park@ouhsc.edu
     - icon: google
       text: GoogleScholar
-      href: https://scholar.google.com/citations?user=p8Qd4zwAAAAJ&hl=en
+      url: https://scholar.google.com/citations?user=p8Qd4zwAAAAJ&hl=en
 ---
 
 ::: {.column-page}
 
 ## Bio
-# Hello
+### Hello
 ## Research Goals
 
 ## Experience

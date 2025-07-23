@@ -13,6 +13,7 @@ website:
 format:
   html:
     theme: styles.scss
+    mainfont: Roboto
     toc: true
 
 
