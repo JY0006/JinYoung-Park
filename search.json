@@ -4,13 +4,13 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Title\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nLC-MS data\n\n\n \n\n\n\n\n\n\nnumber 2\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n07-24-2025\n\n\nLC-MS data\n\n\nJinYoung Park\n\n\n\n\n\n\n \n\n\nnumber 2\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/Class_presentation.html",
     "href": "projects/Class_presentation.html",
     "title": "LC-MS data",
     "section": "",
-    "text": "##About this presentation"
+    "text": "##On this page\n##Package Used\n\nlibrary(tidyverse)\n\n##Loading Data"
   }
 ]
