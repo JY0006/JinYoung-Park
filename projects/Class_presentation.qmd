@@ -58,7 +58,5 @@ plaDataLong <- merge(plaDataLong, ID, by = "sampleId")
 #set a seed in order to make the analysis reproducible
 set.seed(11)
 
-planaria_recipe <- recipe()
-
 ```
 
