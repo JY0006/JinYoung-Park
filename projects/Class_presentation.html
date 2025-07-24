@@ -153,7 +153,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link active" data-scroll-target="#loading-data">Loading Data</a></li>
+  <li><a href="#package-used" id="toc-package-used" class="nav-link active" data-scroll-target="#package-used">Package Used</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading Data</a></li>
+  <li><a href="#prep-the-data" id="toc-prep-the-data" class="nav-link" data-scroll-target="#prep-the-data">Prep the Data</a></li>
   <li><a href="#visualization-of-pca-plot" id="toc-visualization-of-pca-plot" class="nav-link" data-scroll-target="#visualization-of-pca-plot">Visualization of PCA plot</a></li>
   <li><a href="#volcano-plot" id="toc-volcano-plot" class="nav-link" data-scroll-target="#volcano-plot">Volcano Plot</a></li>
   <li><a href="#take-a-look-individual-compound" id="toc-take-a-look-individual-compound" class="nav-link" data-scroll-target="#take-a-look-individual-compound">Take a look individual compound</a></li>
@@ -195,12 +197,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>##On this page</p>
-<p>##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"></p>
-<p>##Package Used</p>
+<p>##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"> after dissecting the planaria, we isolated metabolites using organic solvent (40% methanol, 40% acetonitrile, 20% water) and ran LC-MS</p>
+<p>##How to get csv files LS-MS raw data has been processed by the program El-MAVEN <img src="figs/El_maven.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<p>Checking the peak and selecting the metabolite for export</p>
+<p>As a result, we got the file for Negative mode and Positive mode CSV files.</p>
+<section id="package-used" class="level2">
+<h2 class="anchored" data-anchor-id="package-used">Package Used</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 <section id="loading-data" class="level2">
 <h2 class="anchored" data-anchor-id="loading-data">Loading Data</h2>
 <div class="cell">
@@ -303,7 +310,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6       H1 N-Acetylneuraminic acid    15776.14 Planaria  48h</code></pre>
 </div>
 </div>
-<p>#Drawing PCA plot ## Prep the Data</p>
+</section>
+<section id="prep-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="prep-the-data">Prep the Data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set a seed in order to make the analysis reproducible</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
@@ -409,7 +418,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">check_overlap =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">nudge_y =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"PCA of LC-MS IC values"</span>, <span class="at">x =</span> <span class="st">"PC1"</span>, <span class="at">y =</span> <span class="st">"PC3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"PCA of LC-MS IC values"</span>, <span class="at">x =</span> <span class="st">"PC1"</span>, <span class="at">y =</span> <span class="st">"PC3"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
