@@ -9,11 +9,10 @@ editor_options:
 
 ##On this page
 
-##Experiment design
-<img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
-
+##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
 
 ##Package Used
+
 ```{r}
 #| message: false
 #| warning: false
@@ -27,7 +26,11 @@ library(tidymodels)
 ```
 
 ## Loading Data
+
 ```{r}
+#| message: false
+#| warning: false
+#| error: false
 ID <- read.csv("csv/BOA Team Metabolomics Master Sample Decode.csv")
 data <- read.csv("csv/MBL BoA Run 2 Neg.csv")
 dataPos <- read.csv("csv/MBL BoA Run 2 Pos.csv")
@@ -57,9 +60,13 @@ table(plaDataLong$time)
 
 
 ```
-
+#Drawing PCA plot
 ## Prep the Data
+
 ```{r}
+#| message: false
+#| warning: false
+#| error: false
 #set a seed in order to make the analysis reproducible
 set.seed(11)
 
@@ -90,6 +97,12 @@ pca_prepped
 pca_baked <- bake(pca_prepped, plaDataWide)
 pca_baked
 
+```
+# Visualization of PCA plot
+```{r}
+#| message: false
+#| warning: false
+#| error: false
 ggplot(pca_baked, aes(x = PC1, y = PC2, color = time)) +
   geom_point(size = 3, alpha = 0.8) +
   theme_minimal() +
@@ -102,10 +115,12 @@ ggplot(pca_baked, aes(x = PC1, y = PC3, color = time, label = sampleId)) +
   labs(title = "PCA of LC-MS IC values", x = "PC1", y = "PC3")
 
 ```
+
 # Volcano Plot
-
 ```{r}
-
+#| message: false
+#| warning: false
+#| error: false
 regFxn <- possibly(function(dat){
   lm(log2(IC+0.01) ~ time, data = dat) %>% 
     broom::tidy()
@@ -131,6 +146,19 @@ planStats %>%
 ```
 
 ```{r}
+#| message: false
+#| warning: false
+#| error: false
+
+
+
+```
+
+# Take a look individual compound
+```{r}
+#| message: false
+#| warning: false
+#| error: false
 planStats %>% 
   group_by(compound) %>% 
   arrange(p.adj)
@@ -149,7 +177,8 @@ plaDataLong %>%
                                    vjust = 1, 
                                    hjust=1),
         axis.text = element_text(color = "black", size = 14)) +
-  labs(title = "Most changed compound during regenration") 
+  labs(title = "Most changed compound during regeneration") 
 
 ```
 
+Then, let's search [Google](https://www.google.com) about what this compound is! [Guaiacol Sulfate](https://www.google.com/search?q=guaiacol+sulfate&sca_esv=5dbeab7b81d1ee5e&sxsrf=AE3TifNpJHdY2HpJwGjLcTIEB51z8U1CnQ%3A1753335051424&ei=C8WBaO7QGbCsqtsPn9vPoA4&udm=2&oq=gua&gs_lp=Egxnd3Mtd2l6LXNlcnAiA2d1YSoCCAAyEBAjGPAFGIAEGCcYyQIYigUyFhAuGIAEGLEDGNEDGEMYgwEYxwEYigUyDRAAGIAEGLEDGEMYigUyCxAuGIAEGLEDGNQCMgUQABiABDILEC4YgAQYsQMY1AIyDhAAGIAEGLEDGIMBGIoFMhAQLhiABBixAxhDGNQCGIoFMggQLhiABBixAzIIEAAYgAQYsQNIpw5QAFjzBHAAeAGQAQCYAX-gAbUCqgEDMi4xuAEDyAEA-AEBmAIDoALVAsICBBAjGCfCAgoQABiABBhDGIoFwgILEAAYgAQYkQIYigXCAg4QLhiABBjHARiOBRivAcICERAuGIAEGLEDGNEDGIMBGMcBwgILEC4YgAQYsQMYgwHCAgUQLhiABMICDhAuGIAEGLEDGNEDGMcBmAMAkgcDMS4yoAfXNLIHAzEuMrgH1QLCBwUyLTEuMsgHHA&sclient=gws-wiz-serp)
