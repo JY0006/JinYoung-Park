@@ -71,11 +71,15 @@ head(plaDataLong)
 set.seed(11)
 
 # change into wide
+colnames(plaDataLong)
+
 plaDataWide <- plaDataLong %>%
   pivot_wider(
     id_cols = c(sampleId, organism, time), 
     names_from = compound,
     values_from = IC)
+
+head(plaDataWide)
 
 # generate reciepe
 pca_recipe <- recipe(~ ., data = plaDataWide) %>%
@@ -98,7 +102,7 @@ pca_baked <- bake(pca_prepped, plaDataWide)
 pca_baked
 
 ```
-# Visualization of PCA plot
+## Visualization of PCA plot
 ```{r}
 #| message: false
 #| warning: false
@@ -116,7 +120,7 @@ ggplot(pca_baked, aes(x = PC1, y = PC3, color = time, label = sampleId)) +
 
 ```
 
-# Volcano Plot
+## Volcano Plot
 ```{r}
 #| message: false
 #| warning: false
@@ -154,7 +158,7 @@ planStats %>%
 
 ```
 
-# Take a look individual compound
+## Take a look individual compound
 ```{r}
 #| message: false
 #| warning: false
