@@ -10,7 +10,7 @@ about:
       url: https://github.com/JY0006
     - icon: linkedin
       text: Linkedin
-      url: www.linkedin.com/in/jinyoung-park-bio
+      url: https://www.linkedin.com/in/jinyoung-park-bio
     - icon: envelope
       text: Email
       url: jinyoung-park@ouhsc.edu
