@@ -42,8 +42,10 @@ pladata <- data %>%
 pladataPos <- dataPos %>% 
   select(compound, any_of(ID$sampleId))
 
-colnames(pladata)
 dim(pladata)
+head(ID)
+head(pladata)
+head(pladataPos)
 
 plaData <- rbind(pladata, pladataPos)
 plaData$compound <- make.unique(plaData$compound)
@@ -55,9 +57,7 @@ plaDataLong <- pivot_longer(plaData,cols = c(2:13), names_to = "sampleId", value
 plaDataLong <- merge(plaDataLong, ID, by = "sampleId")
 
 dim(plaDataLong)
-colnames(plaDataLong)
-table(plaDataLong$time)
-
+head(plaDataLong)
 
 ```
 #Drawing PCA plot
