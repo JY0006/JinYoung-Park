@@ -13,18 +13,18 @@ about:
       url: https://www.linkedin.com/in/jinyoung-park-bio
     - icon: envelope
       text: Email
-      url: jinyoung-park@ouhsc.edu
+      url: mailto:jinyoung-park@ouhsc.edu
     - icon: google
       text: GoogleScholar
       url: https://scholar.google.com/citations?user=p8Qd4zwAAAAJ&hl=en
 ---
 
-::: {.column-page}
-
+::: column-page
 ## Bio
-### Hello
+
+Hello!
+
 ## Research Goals
 
 ## Experience
-
 :::
