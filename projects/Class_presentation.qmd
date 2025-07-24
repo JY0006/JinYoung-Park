@@ -9,6 +9,8 @@ editor_options:
 
 ##On this page
 
+The objective of this experiment is to figure out the metabolite that changes during the planaria regeneration.
+
 ##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/> after dissecting the planaria, we isolated metabolites using organic solvent (40% methanol, 40% acetonitrile, 20% water) and ran LC-MS
 
 ##How to get csv files LS-MS raw data has been processed by the program El-MAVEN <img src="figs/El_maven.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
@@ -164,12 +166,18 @@ planStats %>%
 #| message: false
 #| warning: false
 #| error: false
-top5_padj <- planStats %>% 
+top5_padj <- planStats %>%
+  group_by(term) %>% 
   arrange(p.adj) %>% 
   slice_head(n = 5)
 
-ggplot(top5_padj, aes(x= reorder(compound, p.adj), y = p.adj)) +
-  geom_bar(stat = "identity", fill = term)
+head(top5_padj)
+
+top5_padj %>% 
+  filter(estimate != 0) %>% 
+  ggplot(aes(x= compound, y = estimate)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(title = "Top 5 highest p-adj's estimate", x = "compound", y = "estimate") + theme_minimal() + facet_grid(~term) + coord_flip()
 
 
 ```
