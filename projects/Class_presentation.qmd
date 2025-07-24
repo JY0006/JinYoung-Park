@@ -70,6 +70,7 @@ plaDataWide <- plaDataLong %>%
     names_from = compound,
     values_from = IC)
 
+# generate reciepe
 pca_recipe <- recipe(~ ., data = plaDataWide) %>%
   update_role(sampleId, organism, time, new_role = "id")
 
@@ -83,7 +84,7 @@ pca_recipe <- recipe(~ ., data = plaDataWide) %>%
 
 pca_recipe
 
-# 4. recipe 적용
+# apply recipe
 pca_prepped <- prep(pca_recipe)
 pca_prepped
 pca_baked <- bake(pca_prepped, plaDataWide)
@@ -96,7 +97,7 @@ ggplot(pca_baked, aes(x = PC1, y = PC2, color = time)) +
 
 ggplot(pca_baked, aes(x = PC1, y = PC3, color = time, label = sampleId)) +
   geom_point(size = 3, alpha = 0.8) +
-  geom_text(check_overlap = TRUE, color = "black") +
+  geom_text(check_overlap = TRUE, color = "black", nudge_y = 1) +
   theme_minimal() +
   labs(title = "PCA of LC-MS IC values", x = "PC1", y = "PC3")
 
@@ -110,23 +111,45 @@ regFxn <- possibly(function(dat){
     broom::tidy()
 }, otherwise = NULL)
 
-planStatsTime <- plaDataLong %>% 
+planStats <- plaDataLong %>% 
   nest(statData = -compound) %>% 
   mutate(df = map(statData, regFxn)) %>% 
   unnest_legacy(df) %>% 
   filter(term != "(Intercept)") %>% 
   mutate(p.adj = p.adjust(p.value, method = "BH"))
 
-planStatsTime %>% 
+planStats %>% 
   mutate(term = factor(term,
                        levels = c("time6h", 
                                   "time24h", 
                                   "time48h"))) %>% 
-  ggplot(aes(x = estimate, y = -log10(p.adj))) +
+  ggplot(aes(x = estimate, y = -log10(p.adj), label = compound)) +
   geom_point() +
   facet_wrap(~term) +
   geom_hline(yintercept = 1.3)
 
+```
+
+```{r}
+planStats %>% 
+  group_by(compound) %>% 
+  arrange(p.adj)
+
+head(planStats)
+
+plaDataLong %>% 
+  mutate(time = factor(levels = c("0h","6h","24h","48h"), time)) %>% 
+  filter(compound == "Guaiacol sulfate") %>% 
+  ggplot(aes(x = compound, y = IC, fill = time)) +
+  geom_bar(stat = "summary", fun = mean,
+           position = position_dodge(), color = "black") +
+  geom_point(position = position_dodge(width = 1)) + 
+  facet_wrap(~organism, scales = "free") +
+  theme(axis.text.x = element_text(angle = 45, 
+                                   vjust = 1, 
+                                   hjust=1),
+        axis.text = element_text(color = "black", size = 14)) +
+  labs(title = "Most changed compound during regenration") 
 
 ```
 
