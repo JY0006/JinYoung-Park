@@ -164,7 +164,12 @@ planStats %>%
 #| message: false
 #| warning: false
 #| error: false
+top5_padj <- planStats %>% 
+  arrange(p.adj) %>% 
+  slice_head(n = 5)
 
+ggplot(top5_padj, aes(x= reorder(compound, p.adj), y = p.adj)) +
+  geom_bar(stat = "identity", fill = term)
 
 
 ```
