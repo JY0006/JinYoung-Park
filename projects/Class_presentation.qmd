@@ -146,6 +146,8 @@ planStats <- plaDataLong %>%
   filter(term != "(Intercept)") %>% 
   mutate(p.adj = p.adjust(p.value, method = "BH"))
 
+head(planStats)
+
 planStats %>% 
   mutate(term = factor(term,
                        levels = c("time6h", 
