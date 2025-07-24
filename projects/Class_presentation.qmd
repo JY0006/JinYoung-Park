@@ -9,6 +9,10 @@ editor_options:
 
 ##On this page
 
+##Experiment design
+<img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
+
+
 ##Package Used
 ```{r}
 #| message: false
@@ -54,7 +58,7 @@ dim(plaData)
 #set a seed in order to make the analysis reproducible
 set.seed(11)
 
-planaria_recipe <- 
+planaria_recipe <- recipe()
 
 ```
 
