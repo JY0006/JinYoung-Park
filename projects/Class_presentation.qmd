@@ -32,10 +32,6 @@ ID <- read.csv("csv/BOA Team Metabolomics Master Sample Decode.csv")
 data <- read.csv("csv/MBL BoA Run 2 Neg.csv")
 dataPos <- read.csv("csv/MBL BoA Run 2 Pos.csv")
 
-glimse(ID)
-glimpse(data)
-glimpse(dataPos)
-
 #split planaria data from the scan
 pladata <- data %>% 
   select(compound, any_of(ID$sampleId))
@@ -43,13 +39,14 @@ pladata <- data %>%
 pladataPos <- dataPos %>% 
   select(compound, any_of(ID$sampleId))
 
-glimpse(pladata)
 dim(pladata)
 
 plaData <- rbind(pladata, pladataPos)
 
 dim(plaData)
 
+
+plaDataLong <- pivot_longer(plaData,)
 
 ```
 
