@@ -11,6 +11,27 @@
     "href": "projects/Class_presentation.html",
     "title": "LC-MS data",
     "section": "",
-    "text": "##On this page\n##Package Used\n\nlibrary(tidyverse)\n\n##Loading Data"
+    "text": "##On this page\n##Experiment design\n##Package Used\nlibrary(tidyverse)\nlibrary(tidymodels)"
+  },
+  {
+    "objectID": "projects/Class_presentation.html#loading-data",
+    "href": "projects/Class_presentation.html#loading-data",
+    "title": "LC-MS data",
+    "section": "Loading Data",
+    "text": "Loading Data\n\nID &lt;- read.csv(\"csv/BOA Team Metabolomics Master Sample Decode.csv\")\ndata &lt;- read.csv(\"csv/MBL BoA Run 2 Neg.csv\")\ndataPos &lt;- read.csv(\"csv/MBL BoA Run 2 Pos.csv\")\n\n#split planaria data from the scan\npladata &lt;- data %&gt;% \n  select(compound, any_of(ID$sampleId))\n\npladataPos &lt;- dataPos %&gt;% \n  select(compound, any_of(ID$sampleId))\n\ndim(pladata)\n\n[1] 332  13\n\nplaData &lt;- rbind(pladata, pladataPos)\n\ndim(plaData)\n\n[1] 497  13\n\nplaDataLong &lt;- pivot_longer(plaData,cols = c(2:13), names_to = \"sampleId\", values_to = \"IC\")\n\nplaDataLong &lt;- merge(plaDataLong, ID, by = \"sampleId\")"
+  },
+  {
+    "objectID": "projects/Class_presentation.html#prep-the-data",
+    "href": "projects/Class_presentation.html#prep-the-data",
+    "title": "LC-MS data",
+    "section": "Prep the Data",
+    "text": "Prep the Data\n\n#set a seed in order to make the analysis reproducible\nset.seed(11)"
+  },
+  {
+    "objectID": "publication.html",
+    "href": "publication.html",
+    "title": "Publication",
+    "section": "",
+    "text": "No matching items"
   }
 ]
