@@ -9,9 +9,15 @@ editor_options:
 
 ##On this page
 
-##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
+##Experiment design <img src="figs/planariaExperiment.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/> after dissecting the planaria, we isolated metabolites using organic solvent (40% methanol, 40% acetonitrile, 20% water) and ran LC-MS
 
-##Package Used
+##How to get csv files LS-MS raw data has been processed by the program El-MAVEN <img src="figs/El_maven.png" width="60%" style="display:block; margin-left: auto; margin-right: auto;"/>
+
+Checking the peak and selecting the metabolite for export
+
+As a result, we got the file for Negative mode and Positive mode CSV files.
+
+## Package Used
 
 ```{r}
 #| message: false
@@ -60,7 +66,7 @@ dim(plaDataLong)
 head(plaDataLong)
 
 ```
-#Drawing PCA plot
+
 ## Prep the Data
 
 ```{r}
@@ -102,7 +108,9 @@ pca_baked <- bake(pca_prepped, plaDataWide)
 pca_baked
 
 ```
+
 ## Visualization of PCA plot
+
 ```{r}
 #| message: false
 #| warning: false
@@ -116,11 +124,12 @@ ggplot(pca_baked, aes(x = PC1, y = PC3, color = time, label = sampleId)) +
   geom_point(size = 3, alpha = 0.8) +
   geom_text(check_overlap = TRUE, color = "black", nudge_y = 1) +
   theme_minimal() +
-  labs(title = "PCA of LC-MS IC values", x = "PC1", y = "PC3")
+  labs(title = "PCA of LC-MS IC values", x = "PC1", y = "PC3") 
 
 ```
 
 ## Volcano Plot
+
 ```{r}
 #| message: false
 #| warning: false
@@ -159,6 +168,7 @@ planStats %>%
 ```
 
 ## Take a look individual compound
+
 ```{r}
 #| message: false
 #| warning: false
